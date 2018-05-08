@@ -1,0 +1,12 @@
+{
+    "name": "ca.mckenney.robert.vttt",
+    "displayName": "VueTicTacToe",
+    "version": "1.0.0",
+    "description": "A simple tic-tac-toe game to demonstrate how to build an app with Vue.js",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Robert McKeneny",
+    "license": "Apache-2.0"
+}
