@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Week 1 | MTM6430</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <h1 v-if="isLoading">Loading ...</h1>
+    <template v-else>
+      <h1>{{ message }}</h1>
+      <h1>{{ author }}</h1>
+    </template> -->
+    <ul>
+      <li v-for="company in companies">{{ company }}</li>
+    </ul>
+    <input type="text" v-model="newCompany" v-on:keyUp.enter="addCompany">
+    <button @click="addCompany" v-bind:disabled="!newCompany.length">Add Company</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          message: 'Hello World!',
+          author: 'Robert',
+          isLoading: true,
+          companies: ['Apple', 'Google', 'Amazon'],
+          newCompany: ''
+        }
+      },
+      methods: {
+        addCompany() {
+          if (this.newCompany.length === 0) return
+
+          this.companies.push(this.newCompany)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

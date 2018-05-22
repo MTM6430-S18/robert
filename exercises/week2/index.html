@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Week 2 | MTM6430</title>
+  <style>
+    .task-list-item {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <h1>Vue Todos</h1>
+    <label>
+      Title
+      <input type="text" v-model="newTask.title">
+    </label>
+    <label>
+      Due At
+      <input type="date" v-model="newTask.dueAt">
+    </label>
+    <button @click="addTask">Add Task</button>
+    <ul>
+      <li v-for="task in tasks" class="task-list-item">
+        <span @click="toggleDone(task)">{{ task.isComplete }}</span>
+        <span>{{ task.title }}</span>
+        <span>{{ task.dueAt }}</span>
+      </li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data: () => ({
+        newTask: {
+          id: new Date(),
+          title: '',
+          dueAt: '',
+          isComplete: false
+        },
+        tasks: [{
+            id: 1,
+            title: 'Learn Vue',
+            dueAt: '2018-08-17',
+            isComplete: false
+          },
+          {
+            id: 2,
+            title: 'Learn ES2015',
+            dueAt: '2018-05-31',
+            isComplete: false
+          },
+        ]
+      }),
+      methods: {
+        toggleDone(task) {
+          task.isComplete = !task.isComplete
+        },
+        addTask() {
+          this.tasks.push(this.newTask)
+          this.resetNewTask()
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
