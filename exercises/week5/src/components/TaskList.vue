@@ -4,6 +4,7 @@
         v-for="task in sortedList"
         :key="task.id"
         :task="task"
+        @updateTask="updateTask"
         @toggleDone="toggleDone"
         @deleteTask="deleteTask" />
   </transition-group>
@@ -29,6 +30,9 @@ export default {
     },
     deleteTask (task) {
       this.$emit('deleteTask', task)
+    },
+    updateTask (task) {
+      this.$emit('updateTask', task)
     }
   }
 }
