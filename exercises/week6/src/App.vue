@@ -113,11 +113,14 @@ export default {
       task.isComplete = !task.isComplete
     },
     updateTask (task) {
+      // Instead of duplicating the code for delete and add, it is better to
+      // just call those existing methods:
       // this.deleteTask(task)
       // this.addTask(task)
 
-      // Now that we are running the deep watch on our tasks array, we will have
-      // reactivity if we directly update a task object's properties ...
+      // Alternatively, now that we are running the deep watch on our tasks
+      // array, we WILL now have reactivity if we directly update a task
+      // object's properties ...
       let target = this.tasks.find(t => t.id === task.id) // eslint-disable-line no-unused-vars
       target = Object.assign(target, task)
     }
