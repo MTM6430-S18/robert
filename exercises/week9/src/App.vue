@@ -6,6 +6,7 @@
       :priorities="priorityOptions"
       @addTask="addTask"
     />
+
     <nav>
       <button
         class="nav-item"
@@ -18,6 +19,7 @@
         @click="selectedNav = 'completed'"
       >Completed Tasks</button>
     </nav>
+
     <div class="toolbar">
       <select v-model="selectedPriority">
         <option value="">All Priorities</option>
@@ -201,7 +203,7 @@ nav {
     border-bottom: 2px solid transparent;
     display: flex;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1rem;
     justify-content: center;
     letter-spacing: 0.5px;
     outline: none;
